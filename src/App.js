@@ -2,13 +2,14 @@ import "./App.css";
 import foto from "./images/foto.jpg";
 import { Actress } from "./Actress";
 import { Astras } from "./Astras";
-import { useState } from "react"; 
+import { useState } from "react";
 
 function App() {
   const [inputValue, setInputValue] = useState("");
+  const [showBoobs, setShowBoobs] = useState(false);
   const age = 16;
   const isSersiDominated = true;
-  const [fucked,  setFucked] = useState(1)
+  const [fucked, setFucked] = useState(1);
   const actresses = [
     { name: "Anna", ethnicity: "Black", born: 1992 },
     { name: "Daisy", ethnicity: "White", born: 1992 },
@@ -23,17 +24,28 @@ function App() {
   ];
 
   const increaseFucked = () => {
-    setFucked(fucked+1)
+    setFucked(fucked + 1);
   };
   const handleInputChange = (event) => {
-      setInputValue(event.target.value);
-  }
+    setInputValue(event.target.value);
+  };
 
   return (
     <div className="App">
-    <input type="text" onChange={handleInputChange}/>
-    {inputValue}
-    <br/>
+      {/* Show */}
+      <button
+        onClick={() => {
+          setShowBoobs(!showBoobs)
+        }}
+      >
+        Show/Hide
+      </button>
+      {showBoobs && <h1>My name is Anna Shaffer</h1>}
+
+      <h1></h1>
+      <input type="text" onChange={handleInputChange} />
+      {inputValue}
+      <br />
 
       {fucked}
       <button onClick={increaseFucked}>increase Fuck</button>
